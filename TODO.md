@@ -1,16 +1,13 @@
 # TODO
 
-- Organisation
-- Scene/Level
-- Sticky plateforme
+- Sticky plateforme to optimise
 - Score
 - UX/UI
 - Sprite
 - Particle
 - Sound
+- Ennemies
 
-- Advanced platform:
-    * Only top collision enabled
 
 
 ## Organisation

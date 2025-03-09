@@ -4,6 +4,7 @@ class StickyComponent extends Component {
   constructor() {
     super();
     this.lastPlatformX = 0;
+    this.lastPlatformY = 0;
     this.currentActors = new Set();
   }
 
@@ -26,10 +27,14 @@ class StickyComponent extends Component {
 
   update(engine, delta) {
     let deltaX = this.owner.pos.x - this.lastPlatformX;
+    let deltaY = this.owner.pos.y - this.lastPlatformY;
+
     this.currentActors.forEach((actor) => {
       actor.pos.x += deltaX;
+      actor.pos.y += deltaY;
     });
     this.lastPlatformX = this.owner.pos.x;
+    this.lastPlatformY = this.owner.pos.y;
   }
 }
 

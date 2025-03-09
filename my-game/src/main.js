@@ -11,7 +11,7 @@ const game = new Engine({
   },
   scenes: {
     root: {
-      scene: Level1,
+      scene: Level2,
       transitions: {
         out: new FadeInOut({
           duration: 300,
@@ -20,8 +20,16 @@ const game = new Engine({
         in: new FadeInOut({ duration: 300, direction: "in" }),
       },
     },
-    level2: Level2,
+    level2: Level1,
   },
 });
 
 game.start();
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+      game.stop();
+  } else {
+      game.start();
+  }
+});

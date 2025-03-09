@@ -19,29 +19,14 @@ export default class Level2 extends BaseScene {
     this.add(new Ground());
 
     // Arrival platform
-    this.add(new FixedPlatform(700, 150, 200, 20));
+    this.add(new FixedPlatform(800, 150, 200, 20));
 
     // Moving platforms
-    const platform = new MovingPlatform2(
-      300,
-      300,
-      vec(300, 300), 
-      vec(600, 300),
-      "alternating"
-    );
-    this.add(platform);
-
-    const diagonalPlatform = new MovingPlatform2(
-      300,
-      400,
-      vec(300, 400), 
-      vec(600, 600),
-      "diagonal"
-    );
-    this.add(diagonalPlatform);
+    this.add(new MovingPlatform2(vec(350, 450), vec(100, 150), "diagonal"));
+    this.add(new MovingPlatform2(vec(300, 150), vec(670, 150)));
 
     // Flag
-    const flag = new Flag(100, 50);
+    const flag = new Flag(750, 50);
     this.add(flag);
 
     // SCENE COMPLETE
