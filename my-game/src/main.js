@@ -25,13 +25,3 @@ const game = new Engine({
 });
 
 game.start();
-
-
-
-// setTimeout(() => {
-//   game.goToScene("level2");
-// }, 1000);
-
-// setTimeout(() => {
-//   game.goToScene("root");
-// }, 3000);

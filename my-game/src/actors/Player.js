@@ -37,7 +37,6 @@ export class Player extends Actor {
     ) {
       this.setNbJumpUsed(this.nbJumpUsed + 1);
       jump();
-      console.log(this.nbJumpUsed);
     }
   }
 
