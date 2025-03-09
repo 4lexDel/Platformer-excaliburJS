@@ -2,6 +2,7 @@ import { Engine, vec, SolverStrategy, FadeInOut } from "excalibur";
 import Level1 from "./scenes/Level1";
 import Level2 from "./scenes/Level2";
 import Level3 from "./scenes/Level3";
+import MainMenu from "./scenes/MainMenu";
 
 const game = new Engine({
   width: 800,
@@ -11,6 +12,16 @@ const game = new Engine({
     gravity: vec(0, 1400),
   },
   scenes: {
+    // root: {
+    //   scene: MainMenu,
+    //   transitions: {
+    //     out: new FadeInOut({
+    //       duration: 300,
+    //       direction: "out",
+    //     }),
+    //     in: new FadeInOut({ duration: 300, direction: "in" }),
+    //   },
+    // },
     root: {
       scene: Level1,
       transitions: {
