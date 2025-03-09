@@ -1,9 +1,9 @@
-import { Color, Scene } from "excalibur";
+import { Color, FadeInOut, Scene } from "excalibur";
 
 export default class BaseScene extends Scene {
-    onInitialize() {
-        this.camera.strategy.radiusAroundActor(player)
-    }
+  onInitialize() {
+    this.camera.strategy.radiusAroundActor(player);
+  }
 }
 
 // this.on('postupdate', () => {

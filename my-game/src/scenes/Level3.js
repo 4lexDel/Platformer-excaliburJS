@@ -7,8 +7,8 @@ import { FixedPlatform } from "../actors/FixedPlatform";
 import BaseScene from "./Base";
 import { MovingPlatform2 } from "../actors/MovingPlatform2";
 
-export default class Level2 extends BaseScene {
-  onInitialize(engine) {
+export default class Level3 extends BaseScene {
+  onInitialize() {
     this.backgroundColor = Color.fromHex("#87CEEB");
 
     // Player
@@ -32,8 +32,8 @@ export default class Level2 extends BaseScene {
     // SCENE COMPLETE
     flag.onPostKill = () => {
       setTimeout(() => {
-        engine.goToScene("level3");
-    }, 1000);
+        alert("You have won !");
+      }, 1000);
     };
   }
 }
