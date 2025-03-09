@@ -7,7 +7,8 @@ import { Flag } from '../actors/Flag';
 import { FixedPlatform } from '../actors/FixedPlatform';
 
 export default class Level1 extends Scene {
-    onInitialize() {
+    onInitialize(engine) {
+        console.log(engine);
         this.backgroundColor = Color.fromHex('#87CEEB');
 
         // Player
@@ -25,19 +26,18 @@ export default class Level1 extends Scene {
         this.add(new MovingPlatform(500, 400, 300, 600));
 
         // Flag
-        this.flag = new Flag(100, 250)
+        const flag = new Flag(100, 250)
         this.add(flag);
+
+        // SCENE COMPLETE
+        flag.onPostKill = () => {
+            setTimeout(() => {
+                engine.goToScene("level2");
+            }, 1000);
+        }
 
         this.camera.strategy.radiusAroundActor(player)
     }
-
-    // onSceneComplete(callback) {
-    //     this.flag.onPostKill = callback();
-    // }
-
-    // onSceneGameOver(callback) {
-    //     this.callbackSceneGameOver = callback;
-    // }
 }
 
 // this.on('postupdate', () => {

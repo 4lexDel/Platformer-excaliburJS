@@ -39,24 +39,11 @@ export class Player extends Actor {
       jump();
       console.log(this.nbJumpUsed);
     }
-
-    // let colors = [Color.Red, Color.Green, Color.Blue];
-    // let colorIndex = 0;
-
-    // if (engine.clock.now() % 1000 < 16) {
-    //   // Change every second
-    //   this.graphics.color = colors[colorIndex % colors.length];
-    //   colorIndex++;
-    // }
   }
 
   onPreCollisionResolve(self, other, side, contact) {
     if (other.owner instanceof Flag) {
       other.owner.kill();
-      setTimeout(() => {
-        alert("Vous avez gagné !");
-        // game.stop();
-      }, 200);
     }
   }
 
