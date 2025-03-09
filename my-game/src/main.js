@@ -1,6 +1,6 @@
 import { Engine, vec, SolverStrategy, FadeInOut } from "excalibur";
-import Level1 from "./scenes/level1";
-import Level2 from "./scenes/level2";
+import Level1 from "./scenes/Level1";
+import Level2 from "./scenes/Level2";
 
 const game = new Engine({
   width: 800,

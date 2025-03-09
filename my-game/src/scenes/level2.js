@@ -1,12 +1,13 @@
-import { Color, Scene } from "excalibur";
+import { Color } from "excalibur";
 
 import { MovingPlatform } from '../actors/MovingPlatform';
 import { Ground } from '../actors/Ground';
 import { Player } from '../actors/Player';
 import { Flag } from '../actors/Flag';
 import { FixedPlatform } from '../actors/FixedPlatform';
+import BaseScene from "./Base";
 
-export default class Level2 extends Scene {
+export default class Level2 extends BaseScene {
     onInitialize() {
         this.backgroundColor = Color.fromHex('#87CEEB');
 
@@ -26,19 +27,5 @@ export default class Level2 extends Scene {
 
         // Flag
         this.add(new Flag(100, 250));
-
-        this.camera.strategy.radiusAroundActor(player)
     }
 }
-
-// this.on('postupdate', () => {
-//   // Alternative: // this.camera.strategy.lockToActor(player);
-
-//   const camera = this.camera;
-//   const target = player.pos.clone(); // The player or any moving target
-//   target.y -= 100;
-
-//   // Lerp formula: newPos = currentPos + (targetPos - currentPos) * alpha
-//   const lerpFactor = 0.2; // Adjust for smoothness (0 = no movement, 1 = instant)
-//   camera.pos = camera.pos.add(target.sub(camera.pos).scale(lerpFactor));
-// });
