@@ -1,8 +1,9 @@
 import { Engine, vec, SolverStrategy, FadeInOut } from "excalibur";
+import { loader } from "./ressources";
 import Level1 from "./scenes/Level1";
 import Level2 from "./scenes/Level2";
 import Level3 from "./scenes/Level3";
-import MainMenu from "./scenes/MainMenu";
+// import MainMenu from "./scenes/MainMenu";
 
 const game = new Engine({
   width: 800,
@@ -55,7 +56,10 @@ const game = new Engine({
   },
 });
 
-game.start();
+game.start(loader).then(() => {
+  // game.screen.pixelRatioOverride = 4;
+  // game.screen.applyResolutionAndViewport();
+});
 
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {

@@ -30,7 +30,7 @@ export class OneWayCollisionComponent extends Component {
     const otherPosDelta = other.owner.pos.sub(other.owner.oldPos)
 
     // was the other actor above the platform in the previous frame?
-    const otherWasAbovePlatform = other.bounds.bottom - otherPosDelta.y < self.bounds.top + 100;
+    const otherWasAbovePlatform = other.bounds.bottom - otherPosDelta.y < self.bounds.top + 10;
 
     // ignore collision if the collision side is not on the top,
     // or if other was not above the platform in the previous frame
