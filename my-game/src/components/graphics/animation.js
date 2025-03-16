@@ -5,12 +5,20 @@ import { Component } from "excalibur";
  * and get the current animation.
  */
 export class AnimationComponent extends Component {
-  constructor(animations) {
+  constructor(animations, spriteSize) {
     super();
     this.type = 'animation';
     this._animations = animations;
     this._speed = 1;
     this._frameDurations = new WeakMap();
+
+    // Resize the frame
+    Object.values(this._animations).forEach((anim) => {
+        anim.frames.forEach((frame) => {
+          frame.graphic.destSize.width = spriteSize.width;
+          frame.graphic.destSize.height = spriteSize.height;
+        });
+      })
   }
 
   /**

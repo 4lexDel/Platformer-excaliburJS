@@ -15,6 +15,9 @@ import { PlayerControlsComponent } from "../components/input/control";
 import { Resources } from "../ressources";
 import { Flag } from "./Flag";
 
+const PLAYER_WIDTH = 50;
+const PLAYER_HEIGHT = 50;
+
 const SPRITE_WIDTH = 48;
 const SPRITE_HEIGHT = 48;
 
@@ -51,7 +54,12 @@ export class Player extends Actor {
       100,
       AnimationStrategy.Loop
     ),
-  });
+    }, 
+    {
+      width: PLAYER_WIDTH*SPRITE_WIDTH/ PLAYER_SPRITE_WIDTH,
+      height: PLAYER_HEIGHT*SPRITE_HEIGHT/ PLAYER_SPRITE_HEIGHT
+    }
+  );
 
   controls = new PlayerControlsComponent();
 
@@ -61,21 +69,12 @@ export class Player extends Actor {
     super({
       x: x,
       y: y,
-      width: 45,
-      height: 45,
+      width: PLAYER_WIDTH,
+      height: PLAYER_HEIGHT,
       color: Color.Blue,
       collisionType: CollisionType.Active,
     });
     this.body.useGravity = true;
-
-    Object.values(this.animation._animations).forEach((anim) => {
-      anim.frames.forEach((frame) => {
-        console.log(frame.graphic.destSize);
-        frame.graphic.destSize.width = Math.pow(this.width, 2)/PLAYER_SPRITE_WIDTH;
-        frame.graphic.destSize.height = Math.pow(this.height, 2)/PLAYER_SPRITE_HEIGHT;
-      });
-    })
-
 
     this.addComponent(this.animation);
     this.addComponent(this.controls);
