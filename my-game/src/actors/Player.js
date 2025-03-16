@@ -15,8 +15,12 @@ import { PlayerControlsComponent } from "../components/input/control";
 import { Resources } from "../ressources";
 import { Flag } from "./Flag";
 
-const SPRITE_WIDTH = 96;
-const SPRITE_HEIGHT = 96;
+const SPRITE_WIDTH = 48;
+const SPRITE_HEIGHT = 48;
+
+const PLAYER_SPRITE_WIDTH = 16;
+const PLAYER_SPRITE_HEIGHT = 16;
+
 const spritesheet = SpriteSheet.fromImageSource({
   image: Resources.img.player,
   grid: {
@@ -57,12 +61,21 @@ export class Player extends Actor {
     super({
       x: x,
       y: y,
-      width: 32,
-      height: 32,
+      width: 45,
+      height: 45,
       color: Color.Blue,
       collisionType: CollisionType.Active,
     });
     this.body.useGravity = true;
+
+    Object.values(this.animation._animations).forEach((anim) => {
+      anim.frames.forEach((frame) => {
+        console.log(frame.graphic.destSize);
+        frame.graphic.destSize.width = Math.pow(this.width, 2)/PLAYER_SPRITE_WIDTH;
+        frame.graphic.destSize.height = Math.pow(this.height, 2)/PLAYER_SPRITE_HEIGHT;
+      });
+    })
+
 
     this.addComponent(this.animation);
     this.addComponent(this.controls);

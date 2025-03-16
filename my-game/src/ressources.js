@@ -4,7 +4,7 @@ const BASE_URL = import.meta.env.MODE === 'production' ? '/platformer' : '';
 
 export const Resources = {
   img: {
-    player: new ImageSource(BASE_URL + '/res/images/Player2.png'),
+    player: new ImageSource(BASE_URL + '/res/images/Player.png'),
   }
 }
 
