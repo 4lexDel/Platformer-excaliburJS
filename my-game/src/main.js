@@ -13,7 +13,7 @@ const game = new Engine({
   // },
   width: 800,
   height: 600,
-  // displayMode: DisplayMode.FitScreen,
+  displayMode: DisplayMode.FitScreenAndFill,
   fixedUpdateFps: 60,
   physics: {
     solver: SolverStrategy.Arcade,
@@ -66,18 +66,18 @@ const game = new Engine({
 });
 
 // get or set the viewport
-// const viewport = game.screen.viewport;
-// game.screen.viewport = { width: 800*.6, height: 600*.6 }
+const viewport = game.screen.viewport;
+game.screen.viewport = { width: 800, height: 600 }
 
 // get or set the resolution
 // const resolution = game.screen.resolution;
 game.screen.resolution = { width: 800, height: 600};
+// game.screen.pixelRatioOverride =  2;
 
 // Apply changes to viewport and resolution to the canvas and graphics context
 game.screen.applyResolutionAndViewport();
 
 game.start(loader).then(() => {
-  // game.screen.pixelRatioOverride =  4;
   // game.screen.applyResolutionAndViewport();
 });
 

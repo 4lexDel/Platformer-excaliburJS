@@ -4,17 +4,17 @@ import { Ground } from "../actors/Ground";
 import { Player } from "../actors/Player";
 import { Flag } from "../actors/Flag";
 import { FixedPlatform } from "../actors/FixedPlatform";
-import BaseScene from "../classes/Base";
+import BaseScene from "../classes/Scene";
 import { MovingPlatform } from "../actors/MovingPlatform";
 
 export default class Level3 extends BaseScene {
-  onInitialize() {
-    this.backgroundColor = Color.fromHex("#87CEEB");
-
+  onInitialize(engine) {
     // Player
     const player = new Player(100, 400);
     this.add(player);
 
+    super.onInitialize(engine, player)
+    
     // Ground
     this.add(new Ground());
 
