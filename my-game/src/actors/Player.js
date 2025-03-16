@@ -15,8 +15,8 @@ import { PlayerControlsComponent } from "../components/input/control";
 import { Resources } from "../ressources";
 import { Flag } from "./Flag";
 
-const PLAYER_WIDTH = 50;
-const PLAYER_HEIGHT = 50;
+const PLAYER_WIDTH = 35;
+const PLAYER_HEIGHT = 35;
 
 const SPRITE_WIDTH = 48;
 const SPRITE_HEIGHT = 48;

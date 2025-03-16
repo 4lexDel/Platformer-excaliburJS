@@ -1,10 +1,10 @@
-import { MovingPlatform } from '../actors/MovingPlatform';
 import { Ground } from '../actors/Ground';
 import { Player } from '../actors/Player';
 import { Flag } from '../actors/Flag';
 import { FixedPlatform } from '../actors/FixedPlatform';
-import BaseScene from "./Base";
-import { Color } from 'excalibur';
+import BaseScene from "../classes/Base";
+import { Color, vec } from 'excalibur';
+import { MovingPlatform } from '../actors/MovingPlatform';
 
 export default class Level1 extends BaseScene {
     onInitialize(engine) {
@@ -18,11 +18,12 @@ export default class Level1 extends BaseScene {
         this.add(new Ground());
 
         // Arrival platform
-        this.add(new FixedPlatform(100, 350, 200, 20));
+        this.add(new FixedPlatform(100, 350, 192, 20));
 
         // Moving platforms
-        this.add(new MovingPlatform(300, 500, 300, 600));
-        this.add(new MovingPlatform(500, 400, 300, 600));
+        this.add(new MovingPlatform(vec(300, 500), vec(600, 500), MovingPlatform.ALTERNATING, 100));
+        this.add(new MovingPlatform(vec(600, 400), vec(300, 400), MovingPlatform.DIAGONAL, 100));
+
 
         // Flag
         const flag = new Flag(100, 250)

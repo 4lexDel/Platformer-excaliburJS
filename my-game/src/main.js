@@ -1,4 +1,4 @@
-import { Engine, vec, SolverStrategy, FadeInOut } from "excalibur";
+import { Engine, vec, SolverStrategy, FadeInOut, Resolution, DisplayMode } from "excalibur";
 import { loader } from "./ressources";
 import Level1 from "./scenes/Level1";
 import Level2 from "./scenes/Level2";
@@ -6,12 +6,21 @@ import Level3 from "./scenes/Level3";
 // import MainMenu from "./scenes/MainMenu";
 
 const game = new Engine({
+  // resolution: {
+  //   height: Resolution.SNES.height,
+  //   // make 16:9
+  //   width: (Resolution.SNES.height / 9) * 16,
+  // },
   width: 800,
   height: 600,
+  // displayMode: DisplayMode.FitScreen,
+  fixedUpdateFps: 60,
   physics: {
     solver: SolverStrategy.Arcade,
     gravity: vec(0, 1400),
   },
+  // pixelRatio: 2, // 4x upscale the resolution, logs an incorrect warning
+  // pixelArt: true, // turn on pixel art sampler
   scenes: {
     // root: {
     //   scene: MainMenu,
@@ -56,8 +65,19 @@ const game = new Engine({
   },
 });
 
+// get or set the viewport
+// const viewport = game.screen.viewport;
+// game.screen.viewport = { width: 800*.6, height: 600*.6 }
+
+// get or set the resolution
+// const resolution = game.screen.resolution;
+game.screen.resolution = { width: 800, height: 600};
+
+// Apply changes to viewport and resolution to the canvas and graphics context
+game.screen.applyResolutionAndViewport();
+
 game.start(loader).then(() => {
-  // game.screen.pixelRatioOverride = 4;
+  // game.screen.pixelRatioOverride =  4;
   // game.screen.applyResolutionAndViewport();
 });
 

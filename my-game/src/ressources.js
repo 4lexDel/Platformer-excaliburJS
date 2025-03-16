@@ -5,6 +5,10 @@ const BASE_URL = import.meta.env.MODE === 'production' ? '/platformer' : '';
 export const Resources = {
   img: {
     player: new ImageSource(BASE_URL + '/res/images/Player.png'),
+    grassPlatform: new ImageSource(BASE_URL +'/res/images/GrassPlatform.png'),
+    icePlatform: new ImageSource(BASE_URL +'/res/images/IcePlatform.png'),
+    goldPlatform: new ImageSource(BASE_URL +'/res/images/GoldPlatform.png'),
+    redPlatform: new ImageSource(BASE_URL +'/res/images/RedPlatform.png'),
   }
 }
 

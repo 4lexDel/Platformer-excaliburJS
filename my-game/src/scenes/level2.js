@@ -4,8 +4,8 @@ import { Ground } from "../actors/Ground";
 import { Player } from "../actors/Player";
 import { Flag } from "../actors/Flag";
 import { FixedPlatform } from "../actors/FixedPlatform";
-import BaseScene from "./Base";
-import { MovingPlatform2 } from "../actors/MovingPlatform2";
+import BaseScene from "../classes/Base";
+import { MovingPlatform } from "../actors/MovingPlatform";
 
 export default class Level2 extends BaseScene {
   onInitialize(engine) {
@@ -22,8 +22,8 @@ export default class Level2 extends BaseScene {
     this.add(new FixedPlatform(800, 150, 200, 20));
 
     // Moving platforms
-    this.add(new MovingPlatform2(vec(350, 450), vec(100, 150), "diagonal"));
-    this.add(new MovingPlatform2(vec(300, 150), vec(670, 150)));
+    this.add(new MovingPlatform(vec(350, 450), vec(100, 150), MovingPlatform.DIAGONAL));
+    this.add(new MovingPlatform(vec(300, 150), vec(670, 150), MovingPlatform.ALTERNATING, 100));
 
     // Flag
     const flag = new Flag(750, 50);
