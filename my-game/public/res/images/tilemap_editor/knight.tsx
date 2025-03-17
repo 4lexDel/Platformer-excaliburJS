@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.10" tiledversion="2025.03.14" name="knight" tilewidth="32" tileheight="32" tilecount="64" columns="8" tilerendersize="grid" fillmode="preserve-aspect-fit">
+ <image source="../#brackeys_platformer_assets/sprites/knight.png" width="256" height="256"/>
+ <tile id="4">
+  <animation>
+   <frame tileid="0" duration="200"/>
+   <frame tileid="1" duration="200"/>
+   <frame tileid="2" duration="200"/>
+   <frame tileid="3" duration="200"/>
+  </animation>
+ </tile>
+</tileset>

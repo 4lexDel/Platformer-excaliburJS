@@ -1,0 +1,85 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "knight.tsx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "blocks.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "coin.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "fruits.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "knight.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 244.99999999999997,
+                "y": 150.99999999999997
+            }
+        },
+        "platform_pixelart.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "platforms.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
+        },
+        "slime_green.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
+        },
+        "slime_green2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 8
+        },
+        "slime_purple.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 5.5
+        }
+    },
+    "frame.defaultDuration": 200,
+    "last.imagePath": "C:/Users/delormeale/Desktop/test code/platformer/Platformer-excaliburJS/my-game/public/res/images/#brackeys_platformer_assets/sprites",
+    "map.lastUsedFormat": "tmx",
+    "map.renderOrder": "3",
+    "openFiles": [
+        "map.tmx",
+        "knight.tsx",
+        "coin.tsx"
+    ],
+    "project": "tilemap_editor.tiled-project",
+    "recentFiles": [
+        "map.tmx",
+        "coin.tsx",
+        "knight.tsx",
+        "slime_green.tsx",
+        "platforms.tsx",
+        "fruits.tsx",
+        "slime_purple.tsx",
+        "blocks.tsx",
+        "slime_green2.tsx",
+        "platform_pixelart.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 24,
+        "width": 24
+    }
+}
