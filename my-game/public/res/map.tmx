@@ -29,6 +29,9 @@
 </data>
  </layer>
  <layer id="1" name="blocks" width="60" height="17">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -137,12 +140,16 @@
   <properties>
    <property name="excalibur" type="bool" value="true"/>
   </properties>
-  <object id="4" name="Player" type="player" x="42" y="156.5">
+  <object id="4" name="Player" type="player" x="60" y="63.8333">
+   <properties>
+    <property name="camera" type="bool" value="false"/>
+    <property name="zoom" type="float" value="1.5"/>
+   </properties>
    <point/>
   </object>
   <object id="8" name="Camera" x="243.333" y="118.667">
    <properties>
-    <property name="camera" type="bool" value="true"/>
+    <property name="camera" type="bool" value="false"/>
     <property name="zoom" type="float" value="1"/>
    </properties>
    <point/>

@@ -1,14 +1,15 @@
-import { Engine, FadeInOut } from "excalibur";
+import { Engine, FadeInOut, SolverStrategy, vec } from "excalibur";
+import { Player } from "./actors/Player";
 import { loader, Resources } from "./ressources";
-import Level1 from "./scenes/Level1";
+// import Level1 from "./scenes/Level1";
 
 const game = new Engine({
   width: 800,
   height: 400,
-  // physics: {
-  //   solver: SolverStrategy.Arcade,
-  //   gravity: vec(0, 1400),
-  // },
+  physics: {
+    solver: SolverStrategy.Arcade,
+    gravity: vec(0, 800),
+  },
   pixelRatio: 2, // 4x upscale the resolution, logs an incorrect warning
   pixelArt: true, // turn on pixel art sampler
   // scenes: {
@@ -29,9 +30,14 @@ const game = new Engine({
 // game.screen.resolution = { width: 800, height: 400};
 // game.screen.applyResolutionAndViewport();
 
+
 game.start(loader).then(() => {
   Resources.tiledMap.addToScene(game.currentScene);
-  // game.currentScene.camera.zoom = 2;
+  
+  const player = new Player(vec(60, 60));
+  game.currentScene.add(player);
+  game.currentScene.camera.zoom = 1.5;
+  game.currentScene.camera.strategy.lockToActor(player);
 });
 
 document.addEventListener("visibilitychange", () => {
@@ -41,3 +47,5 @@ document.addEventListener("visibilitychange", () => {
       game.start();
   }
 });
+
+// TODO INTERRACT WITH THE WORLD !!!!!!!!!!

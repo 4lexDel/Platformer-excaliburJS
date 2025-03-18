@@ -1,7 +1,6 @@
 import {
   Actor,
   Animation,
-  AnimationStrategy,
   CollisionType,
   Color,
   Side,
@@ -12,14 +11,14 @@ import { PlayerControlsComponent } from "../components/input/control";
 import { Resources } from "../ressources";
 import { Flag } from "./Flag";
 
-const PLAYER_WIDTH = 32;
-const PLAYER_HEIGHT = 32;
+const PLAYER_WIDTH = 16;
+const PLAYER_HEIGHT = 20;
 
-const SPRITE_WIDTH = 32;
-const SPRITE_HEIGHT = 32;
+const SPRITE_WIDTH = 16;
+const SPRITE_HEIGHT = 20;
 
-const PLAYER_SPRITE_WIDTH = 32;
-const PLAYER_SPRITE_HEIGHT = 32;
+const PLAYER_SPRITE_WIDTH = 16;
+const PLAYER_SPRITE_HEIGHT = 20;
 
 export class Player extends Actor {
   nbJumpMax = 2;
@@ -53,6 +52,10 @@ export class Player extends Actor {
         spriteWidth: SPRITE_WIDTH,
         spriteHeight: SPRITE_HEIGHT,
       },
+      spacing: {//margin 8 spacing 12
+        originOffset: {x: 8, y: 8},  
+        margin: {x: 16, y: 12}
+    }
     });
 
     this.animation = new AnimationComponent(
@@ -92,8 +95,8 @@ export class Player extends Actor {
       this.facing = this.controls.getHeldXDirection().toLowerCase();
     this.graphics.flipHorizontal = this.facing === "left";
 
-    let horizontalSpeedMax = 250;
-    if (this.currentActorsCollide.size === 0) horizontalSpeedMax = 200;
+    let horizontalSpeedMax = 140;
+    if (this.currentActorsCollide.size === 0) horizontalSpeedMax = 100;
 
     if (this.controls.isHeld("Left")) {
       this.animation.set("run");
@@ -112,11 +115,11 @@ export class Player extends Actor {
     if (Math.abs(this.vel.x) < 1) this.vel.x = 0;
 
     const jump = () => {
-      this.vel.y = -600;
+      this.vel.y = -250;
       this.animation.set("jump");
     };
 
-    if (this.controls.wasPressed("Jump") && this.nbJumpMax > this.nbJumpUsed) {
+    if (this.controls.wasPressed("Jump")) {// && this.nbJumpMax > this.nbJumpUsed) {
       this.setNbJumpUsed(this.nbJumpUsed + 1);
       jump();
     }
@@ -139,6 +142,7 @@ export class Player extends Actor {
   }
 
   onCollisionStart(self, other, side, lastContact) {
+    console.log(other.owner);
     if (other.owner instanceof Actor) {
       this.currentActorsCollide.add(other.owner);
     }
