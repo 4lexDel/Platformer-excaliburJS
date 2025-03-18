@@ -2,7 +2,7 @@ import { Color, Scene } from "excalibur";
 
 export default class BaseScene extends Scene {
   onInitialize(engine, player) {
-    this.backgroundColor = Color.fromHex('#87CEEB');
+    // this.backgroundColor = Color.fromHex('#87CEEB');
 
     // this.camera.strategy.radiusAroundActor(player, 200);
     // this.camera.pos.y = player.pos.y - 100;

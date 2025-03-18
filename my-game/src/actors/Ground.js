@@ -1,11 +1,7 @@
 // Ground.js : use the code defined in the main.js file to create the Ground class (inherit from Actor) and add it to the game.
-import { CollisionType, Color } from "excalibur";
-import { BasePlaform } from "../classes/Platform";
-import { Resources } from "../ressources";
+import { Actor, CollisionType, Color } from "excalibur";
 
-const sprite = Resources.img.grassPlatform.toSprite()
-
-export class Ground extends BasePlaform {
+export class Ground extends Actor {
     constructor() {
         super({
             x: 400,
@@ -14,7 +10,7 @@ export class Ground extends BasePlaform {
             height: 20,
             color: Color.fromRGB(0, 175, 0),
             collisionType: CollisionType.Fixed
-        }, sprite);
+        });
         this.body.useGravity = false;
     }
 }

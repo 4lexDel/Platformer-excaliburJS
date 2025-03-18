@@ -1,11 +1,8 @@
-import { CollisionType, Color } from "excalibur";
-import { BasePlaform } from "../classes/Platform";
+import { Actor, CollisionType, Color } from "excalibur";
 import { OneWayCollisionComponent } from "../components/physics/one-way-platform";
 import StickyComponent from "../components/physics/sticky";
-import { Resources } from "../ressources";
 
-const sprite = Resources.img.goldPlatform.toSprite()
-export class MovingPlatform extends BasePlaform {
+export class MovingPlatform extends Actor {
   static ALTERNATING = "alternating";
   static DIAGONAL = "diagonal";
 
@@ -17,7 +14,7 @@ export class MovingPlatform extends BasePlaform {
       height: 20,
       color: Color.Black,
       collisionType: CollisionType.Fixed,
-    }, sprite);
+    });
 
     this.speed = speed;
     this.seuil = this.speed / 5;

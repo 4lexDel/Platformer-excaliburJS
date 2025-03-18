@@ -1,13 +1,9 @@
 // Plateform.js
 
-import { CollisionType, Color } from "excalibur";
-import { BasePlaform } from "../classes/Platform";
+import { Actor, CollisionType, Color } from "excalibur";
 import { OneWayCollisionComponent } from "../components/physics/one-way-platform";
-import { Resources } from "../ressources";
 
-const sprite = Resources.img.redPlatform.toSprite()
-
-export class FixedPlatform extends BasePlaform {
+export class FixedPlatform extends Actor {
   constructor(x, y, width, height, oneWay=false) {
     super({
       x,
@@ -16,7 +12,7 @@ export class FixedPlatform extends BasePlaform {
       height: height,
       color: oneWay ? Color.fromRGB(200, 100, 50) : Color.Red,
       collisionType: CollisionType.Fixed,
-    }, sprite);
+    });
 
     if(oneWay) {
       this.addComponent(new OneWayCollisionComponent())

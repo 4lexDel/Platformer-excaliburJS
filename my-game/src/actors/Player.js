@@ -1,38 +1,25 @@
-// Player.js : use the code defined in the main.js file to create the Player class (inherit from Actor) and add it to the engine.
 import {
   Actor,
   Animation,
   AnimationStrategy,
   CollisionType,
   Color,
-  Keys,
   Side,
   SpriteSheet,
-  vec,
 } from "excalibur";
 import { AnimationComponent } from "../components/graphics/animation";
 import { PlayerControlsComponent } from "../components/input/control";
 import { Resources } from "../ressources";
 import { Flag } from "./Flag";
 
-const PLAYER_WIDTH = 35;
-const PLAYER_HEIGHT = 35;
+const PLAYER_WIDTH = 32;
+const PLAYER_HEIGHT = 32;
 
-const SPRITE_WIDTH = 48;
-const SPRITE_HEIGHT = 48;
+const SPRITE_WIDTH = 32;
+const SPRITE_HEIGHT = 32;
 
-const PLAYER_SPRITE_WIDTH = 16;
-const PLAYER_SPRITE_HEIGHT = 16;
-
-const spritesheet = SpriteSheet.fromImageSource({
-  image: Resources.img.player,
-  grid: {
-    columns: 4,
-    rows: 7,
-    spriteWidth: SPRITE_WIDTH,
-    spriteHeight: SPRITE_HEIGHT,
-  },
-});
+const PLAYER_SPRITE_WIDTH = 32;
+const PLAYER_SPRITE_HEIGHT = 32;
 
 export class Player extends Actor {
   nbJumpMax = 2;
@@ -40,35 +27,13 @@ export class Player extends Actor {
 
   currentActorsCollide = new Set();
 
-  animation = new AnimationComponent({
-    idle: Animation.fromSpriteSheet(spritesheet, [0, 1, 2, 3], 140),
-    run: Animation.fromSpriteSheet(spritesheet, [4, 5, 6, 7], 140),
-    sprint: Animation.fromSpriteSheet(spritesheet, [8, 9, 10, 11], 140),
-    jump: Animation.fromSpriteSheet(spritesheet, [12], 140),
-    fall: Animation.fromSpriteSheet(spritesheet, [13], 140),
-    turn: Animation.fromSpriteSheet(spritesheet, [16], 140),
-    ladder_climb: Animation.fromSpriteSheet(spritesheet, [20, 21], 140),
-    wall_slide: Animation.fromSpriteSheet(
-      spritesheet,
-      [16],
-      100,
-      AnimationStrategy.Loop
-    ),
-    }, 
-    {
-      width: PLAYER_WIDTH*SPRITE_WIDTH/ PLAYER_SPRITE_WIDTH,
-      height: PLAYER_HEIGHT*SPRITE_HEIGHT/ PLAYER_SPRITE_HEIGHT
-    }
-  );
-
   controls = new PlayerControlsComponent();
 
   facing = "right";
 
-  constructor(x, y) {
+  constructor(pos) {
     super({
-      x: x,
-      y: y,
+      pos,
       width: PLAYER_WIDTH,
       height: PLAYER_HEIGHT,
       color: Color.Blue,
@@ -76,20 +41,59 @@ export class Player extends Actor {
     });
     this.body.useGravity = true;
 
-    this.addComponent(this.animation);
     this.addComponent(this.controls);
   }
 
   onInitialize(engine) {
+    const spritesheet = SpriteSheet.fromImageSource({
+      image: Resources.playerSpriteSheet,
+      grid: {
+        columns: 8,
+        rows: 8,
+        spriteWidth: SPRITE_WIDTH,
+        spriteHeight: SPRITE_HEIGHT,
+      },
+    });
+
+    this.animation = new AnimationComponent(
+      {
+        idle: Animation.fromSpriteSheet(spritesheet, [0, 1, 2, 3], 140),
+        run: Animation.fromSpriteSheet(
+          spritesheet,
+          [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          140
+        ),
+        jump: Animation.fromSpriteSheet(spritesheet, [0, 1, 2, 3], 140),
+        roll: Animation.fromSpriteSheet(
+          spritesheet,
+          [40, 41, 42, 43, 44, 45, 46, 47],
+          140
+        ),
+        hit: Animation.fromSpriteSheet(spritesheet, [48, 49, 50, 51], 140),
+        death: Animation.fromSpriteSheet(
+          spritesheet,
+          [56, 57, 58, 59, 60, 61, 62, 63],
+          140
+        ),
+      },
+      {
+        width: (PLAYER_WIDTH * SPRITE_WIDTH) / PLAYER_SPRITE_WIDTH,
+        height: (PLAYER_HEIGHT * SPRITE_HEIGHT) / PLAYER_SPRITE_HEIGHT,
+      }
+    );
+
+    this.addComponent(this.animation);
+
     this.animation.set("idle");
   }
 
   onPreUpdate(engine) {
-    if(this.controls.isMoving) this.facing = this.controls.getHeldXDirection().toLowerCase();
-    this.graphics.flipHorizontal = this.facing === 'left';
+    if (this.controls.isMoving)
+      this.facing = this.controls.getHeldXDirection().toLowerCase();
+    this.graphics.flipHorizontal = this.facing === "left";
 
     let horizontalSpeedMax = 250;
-    if(this.currentActorsCollide.size === 0) horizontalSpeedMax = 200;
+    if (this.currentActorsCollide.size === 0) horizontalSpeedMax = 200;
 
     if (this.controls.isHeld("Left")) {
       this.animation.set("run");
@@ -102,10 +106,10 @@ export class Player extends Actor {
     }
 
     // DESCELERATE
-    let descelerate = .85;
-    if(this.currentActorsCollide.size === 0) descelerate = .96;
+    let descelerate = 0.85;
+    if (this.currentActorsCollide.size === 0) descelerate = 0.96;
     this.vel.x *= descelerate;
-    if(Math.abs(this.vel.x) < 1) this.vel.x = 0;
+    if (Math.abs(this.vel.x) < 1) this.vel.x = 0;
 
     const jump = () => {
       this.vel.y = -600;
