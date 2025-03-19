@@ -68,7 +68,7 @@
         "map.tmx"
     ],
     "project": "tilemap_editor.tiled-project",
-    "property.type": "bool",
+    "property.type": "float",
     "recentFiles": [
         "map.tmx",
         "blocks.tsx",

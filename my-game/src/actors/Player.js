@@ -109,8 +109,8 @@ export class Player extends Actor {
     }
 
     // DESCELERATE
-    let descelerate = 0.85;
-    if (this.currentActorsCollide.size === 0) descelerate = 0.96;
+    let descelerate = 0.65;
+    if (this.currentActorsCollide.size === 0) descelerate = 0.86;
     this.vel.x *= descelerate;
     if (Math.abs(this.vel.x) < 1) this.vel.x = 0;
 

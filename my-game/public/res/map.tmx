@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="2025.03.14" orientation="orthogonal" renderorder="left-up" width="60" height="17" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="24">
+<map version="1.10" tiledversion="2025.03.14" orientation="orthogonal" renderorder="left-up" width="60" height="17" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="31">
  <properties>
   <property name="excalibur" type="bool" value="true"/>
  </properties>
@@ -55,27 +55,6 @@
 23,23,23,9,23,23,23,23,23,0,0,0,0,0,0,0,0,0,0,23,23,23,23,23,23,23,23,23,23,23,0,0,0,0,0,0,20,19,20,19,20,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19
 </data>
  </layer>
- <layer id="6" name="platform" width="60" height="17">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,362,363,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,370,371,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
  <layer id="4" name="decorations" width="60" height="17">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -97,7 +76,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="3" name="entite" width="60" height="17">
+ <layer id="3" name="entities" width="60" height="17">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -118,6 +97,26 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="9" name="platforms">
+  <object id="25" x="160" y="60">
+   <point/>
+  </object>
+  <object id="27" x="730.5" y="56.5">
+   <point/>
+  </object>
+  <object id="29" template="templates/MovingPlatform.tx" type="MovingPlatform" x="160" y="120">
+   <properties>
+    <property name="height" type="float" value="8"/>
+    <property name="path" type="object" value="25"/>
+    <property name="width" type="float" value="32"/>
+   </properties>
+  </object>
+  <object id="30" template="templates/MovingPlatform.tx" x="616.667" y="165.333">
+   <properties>
+    <property name="path" type="object" value="27"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup id="7" name="player">
   <properties>
    <property name="excalibur" type="bool" value="true"/>
@@ -127,17 +126,17 @@
   </object>
  </objectgroup>
  <objectgroup id="8" name="bonus">
-  <object id="10" template="templates/Coin.tx" type="Coin" x="199.75" y="51"/>
-  <object id="13" template="templates/Coin.tx" type="Coin" x="218.25" y="51"/>
-  <object id="14" template="templates/Coin.tx" type="Coin" x="104.545" y="146.795"/>
-  <object id="15" template="templates/Coin.tx" type="Coin" x="119.864" y="146.977"/>
-  <object id="16" template="templates/Coin.tx" type="Coin" x="329.375" y="160.875"/>
-  <object id="17" template="templates/Coin.tx" type="Coin" x="345.875" y="160.875"/>
-  <object id="18" template="templates/Coin.tx" type="Coin" x="808" y="64.625"/>
-  <object id="19" template="templates/Coin.tx" type="Coin" x="824.5" y="64.625"/>
-  <object id="20" template="templates/Coin.tx" type="Coin" x="488.773" y="113.636"/>
-  <object id="21" template="templates/Coin.tx" type="Coin" x="505.273" y="113.636"/>
-  <object id="22" template="templates/Coin.tx" type="Coin" x="929" y="190.688"/>
-  <object id="23" template="templates/Coin.tx" type="Coin" x="945.5" y="190.688"/>
+  <object id="10" template="templates/Coin.tx" type="Coin" x="192.375" y="50.25"/>
+  <object id="13" template="templates/Coin.tx" type="Coin" x="210.875" y="50.25"/>
+  <object id="14" template="templates/Coin.tx" type="Coin" x="96.9205" y="145.795"/>
+  <object id="15" template="templates/Coin.tx" type="Coin" x="112.239" y="145.977"/>
+  <object id="16" template="templates/Coin.tx" type="Coin" x="323.375" y="163.875"/>
+  <object id="17" template="templates/Coin.tx" type="Coin" x="339.875" y="163.875"/>
+  <object id="18" template="templates/Coin.tx" type="Coin" x="801.455" y="66.9886"/>
+  <object id="19" template="templates/Coin.tx" type="Coin" x="817.955" y="66.9886"/>
+  <object id="20" template="templates/Coin.tx" type="Coin" x="483.273" y="115.386"/>
+  <object id="21" template="templates/Coin.tx" type="Coin" x="499.773" y="115.386"/>
+  <object id="22" template="templates/Coin.tx" type="Coin" x="915.333" y="196.354"/>
+  <object id="23" template="templates/Coin.tx" type="Coin" x="931.833" y="196.354"/>
  </objectgroup>
 </map>

@@ -11,6 +11,7 @@ import {
   vec,
 } from "excalibur";
 import { Coin } from "../actors/COin";
+import { MovingPlatform } from "../actors/MovingPlatform";
 import { Player } from "../actors/Player";
 
 export default class BaseScene extends Scene {
@@ -31,6 +32,35 @@ export default class BaseScene extends Scene {
         y: props.object?.y ?? 0,
         z: props.layer.order ?? 0,
       });
+    },
+
+    /* Platforms */
+    MovingPlatform: (props) => {
+      const x = props.object?.x ?? 0
+      const y = props.object?.y ?? 0
+
+      return new MovingPlatform(
+        {
+          x,
+          y,
+          z: props.layer.order ?? 0,
+          width: props.object?.properties.get('width'),
+          height: props.object?.properties.get('height'),
+        },
+        (actions) => {
+          const speed = (props.object?.properties.get('speed')) ?? 30;
+          const pathObjectId = props.object?.properties.get('path');
+
+          // props.layer is lacking types for tiledObjectLayer
+          const pathObject = props.layer.tiledObjectLayer.objects.find((obj) => obj.id === pathObjectId);
+
+          actions.repeatForever((ctx) =>
+            ctx
+              .moveTo(vec(pathObject.x, pathObject.y), speed)
+              .moveTo(vec(x, y), speed)
+          )
+        }
+      )
     },
 
     /* UI */
