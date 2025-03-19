@@ -1,11 +1,11 @@
 import { ImageSource, Loader } from "excalibur";
 import { TiledResource } from '@excaliburjs/plugin-tiled';
-import { Player } from "./actors/Player";
 
 const BASE_URL = import.meta.env.MODE === 'production' ? '/platformer' : '';
 
 export const Resources = {
   playerSpriteSheet: new ImageSource(BASE_URL + '/res/src/sprites/knight.png'),
+  coinSpriteSheet: new ImageSource(BASE_URL + '/res/src/sprites/coin.png'),
   tiledMap: new TiledResource(BASE_URL + '/res/map.tmx')
 }
   //, {

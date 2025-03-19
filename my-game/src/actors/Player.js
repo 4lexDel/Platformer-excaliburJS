@@ -30,13 +30,13 @@ export class Player extends Actor {
 
   facing = "right";
 
-  constructor(pos) {
+  constructor(args) {
     super({
-      pos,
       width: PLAYER_WIDTH,
       height: PLAYER_HEIGHT,
       color: Color.Blue,
       collisionType: CollisionType.Active,
+      ...args
     });
     this.body.useGravity = true;
 
@@ -55,7 +55,7 @@ export class Player extends Actor {
       spacing: {//margin 8 spacing 12
         originOffset: {x: 8, y: 8},  
         margin: {x: 16, y: 12}
-    }
+      }
     });
 
     this.animation = new AnimationComponent(
@@ -142,7 +142,6 @@ export class Player extends Actor {
   }
 
   onCollisionStart(self, other, side, lastContact) {
-    console.log(other.owner);
     if (other.owner instanceof Actor) {
       this.currentActorsCollide.add(other.owner);
     }
