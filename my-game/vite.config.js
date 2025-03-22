@@ -18,5 +18,6 @@ export default defineConfig({
     build: {
         assetsInlineLimit: 0, // excalibur cannot handle inlined xml in prod mode
         sourcemap: true
-    }
+    },
+    base: '/platformer-excalibur-js/'
 });
