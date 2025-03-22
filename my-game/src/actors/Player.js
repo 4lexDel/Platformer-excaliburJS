@@ -3,13 +3,14 @@ import {
   Animation,
   CollisionType,
   Color,
+  Shape,
   Side,
   SpriteSheet,
+  vec,
 } from "excalibur";
 import { AnimationComponent } from "../components/graphics/animation";
 import { PlayerControlsComponent } from "../components/input/control";
 import { Resources } from "../ressources";
-import { Flag } from "./Flag";
 
 const PLAYER_WIDTH = 16;
 const PLAYER_HEIGHT = 20;
@@ -90,7 +91,7 @@ export class Player extends Actor {
     this.animation.set("idle");
   }
 
-  onPreUpdate(engine) {
+  onPostUpdate(engine) {
     if (this.controls.isMoving)
       this.facing = this.controls.getHeldXDirection().toLowerCase();
     this.graphics.flipHorizontal = this.facing === "left";
@@ -125,11 +126,11 @@ export class Player extends Actor {
     }
   }
 
-  onPreCollisionResolve(self, other, side, contact) {
-    if (other.owner instanceof Flag) {
-      other.owner.kill();
-    }
-  }
+  // onPreCollisionResolve(self, other, side, contact) {
+  //   if (other.owner instanceof Flag) {
+  //     other.owner.kill();
+  //   }
+  // }
 
   onPostCollisionResolve(self, other, side, contact) {
     if (

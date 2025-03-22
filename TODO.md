@@ -36,3 +36,7 @@ https://piiixl.itch.io/mega-pixel-art-32x32-px-icons-sprite-sheet
 https://itch.io/game-assets/free/tag-32x32/tag-characters/tag-pixel-art/tag-sprites
 https://gandalfhardcore.itch.io/2d-pixel-art-male-and-female-character/download/eyJpZCI6MjU1NjY0NCwiZXhwaXJlcyI6MTc0MjE0ODMzOH0%3d.xBt2LU615GIoEAOzeib6FwWxw4E%3d
 https://pixelfrog-assets.itch.io/treasure-hunters?download
+
+
+ADD FIXED PLATFORMS
+SPEED LIMITATIONS

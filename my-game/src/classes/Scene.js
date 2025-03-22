@@ -1,6 +1,7 @@
 import {
   Actor,
   BaseAlign,
+  BoundingBox,
   CollisionType,
   Color,
   CompositeCollider,
@@ -11,12 +12,25 @@ import {
   vec,
 } from "excalibur";
 import { Coin } from "../actors/COin";
+import { LevelTransition } from "../actors/LevelTransition";
 import { MovingPlatform } from "../actors/MovingPlatform";
 import { Player } from "../actors/Player";
 
 export default class BaseScene extends Scene {
   tilemap = null;
   entityFactory = {
+    /* Level transition */
+    LevelTransition: (props) => {
+      console.log(props.object);
+      return new LevelTransition({
+        x: props.object?.properties.get('direction') === "right" ? this.totalWidth-1 : 0,
+        y: props.object?.y ?? -1000,
+        z: props.layer.order ?? 0,
+        width: 5,
+        height: 3000,
+      }, props.object?.properties.get('targetlevel'));
+    },
+
     /* Player */
     Player: (props) =>
       new Player({
@@ -122,8 +136,10 @@ export default class BaseScene extends Scene {
   constructor(args) {
     super();
     this.tilemap = args.tilemap;
-    // this.song = args.song
 
+    this.totalWidth = this.tilemap.map.width * this.tilemap.map.tilewidth;
+    this.totalHeight = this.tilemap.map.height * this.tilemap.map.tileheight;
+    // this.song = args.song
     for (const [className, factory] of Object.entries(this.entityFactory)) {
       this.tilemap.registerEntityFactory(className, factory);
     }
@@ -146,6 +162,7 @@ export default class BaseScene extends Scene {
     const player = this.entities.find((e) => e instanceof Player);
     this.camera.strategy.lockToActor(player);
     this.camera.zoom = 1.8;
+    this.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, this.totalWidth, this.totalHeight));
     // this.camera.addStrategy(new LockCameraToActorStrategy(player));
 
     // @ts-expect-error - temporary to prioritize lockToActor over tilemap strategy
@@ -153,27 +170,25 @@ export default class BaseScene extends Scene {
   }
 
   setupWorldBounds() {
-    const tilemapWidth = this.tilemap.map.width * this.tilemap.map.tilewidth;
-    const tilemapHeight = this.tilemap.map.height * this.tilemap.map.tileheight;
-
+    const offset = 5;
     const bounds = new Actor({
       collisionType: CollisionType.Fixed,
       collider: new CompositeCollider([
         new EdgeCollider({
-          begin: vec(0, 0),
-          end: vec(0, tilemapHeight),
+          begin: vec(-offset, -offset),
+          end: vec(-offset, this.totalHeight+offset),
         }),
         new EdgeCollider({
-          begin: vec(0, tilemapHeight),
-          end: vec(tilemapWidth, tilemapHeight),
+          begin: vec(-offset, this.totalHeight+offset),
+          end: vec(this.totalWidth+offset, this.totalHeight+offset),
         }),
         new EdgeCollider({
-          begin: vec(tilemapWidth, tilemapHeight),
-          end: vec(tilemapWidth, 0),
+          begin: vec(this.totalWidth+offset, this.totalHeight+offset),
+          end: vec(this.totalWidth+offset, offset),
         }),
         new EdgeCollider({
-          begin: vec(tilemapWidth, 0),
-          end: vec(0, 0),
+          begin: vec(this.totalWidth+offset, +offset),
+          end: vec(-offset, -offset),
         }),
       ]),
     });

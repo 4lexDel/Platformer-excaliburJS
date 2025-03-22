@@ -8,6 +8,7 @@ import {
   SpriteSheet,
   vec,
 } from "excalibur";
+import OptimizedActor from "../classes/OptimizedActor";
 import { CollectableComponent } from "../components/behaviours/collectable";
 import { AnimationComponent } from "../components/graphics/animation";
 import { Resources } from "../ressources";
@@ -22,7 +23,7 @@ const SPRITE_HEIGHT = 16;
 const COIN_SPRITE_WIDTH = 16;
 const COIN_SPRITE_HEIGHT = 16;
 
-export class Coin extends Actor {
+export class Coin extends OptimizedActor {
   elapsedMs = 0
   collected = false
 

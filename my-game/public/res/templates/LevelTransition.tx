@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="LevelTransition" type="LevelTransition" width="13.3333" height="1224.33">
+  <properties>
+   <property name="targetLevel" type="string" value=""/>
+   <property name="width" type="float" value="16"/>
+   <property name="height" type="float" value="1200"/>
+  </properties>
+ </object>
+</template>

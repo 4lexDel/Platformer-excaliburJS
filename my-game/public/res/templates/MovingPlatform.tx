@@ -3,8 +3,8 @@
  <object name="MovingPlatform" type="MovingPlatform" width="32" height="8">
   <properties>
    <property name="path" type="object" value="0"/>
-   <property name="width" type="float" value="8"/>
-   <property name="height" type="float" value="32"/>
+   <property name="width" type="float" value="32"/>
+   <property name="height" type="float" value="8"/>
    <property name="type" type="string" value="grass"/>
   </properties>
  </object>
