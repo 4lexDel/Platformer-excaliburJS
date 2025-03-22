@@ -113,7 +113,10 @@
   </object>
   <object id="30" template="templates/MovingPlatform.tx" x="616.667" y="165.333">
    <properties>
+    <property name="height" type="float" value="8"/>
     <property name="path" type="object" value="27"/>
+    <property name="type" value="gold"/>
+    <property name="width" type="float" value="32"/>
    </properties>
   </object>
  </objectgroup>

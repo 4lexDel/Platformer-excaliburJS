@@ -4,7 +4,7 @@ import Level1 from "./scenes/Level1";
 
 const game = new Engine({
   width: 800,
-  height: 400,
+  height: 600,
   physics: {
     solver: SolverStrategy.Arcade,
     gravity: vec(0, 800),
@@ -25,8 +25,8 @@ const game = new Engine({
   },
 });
 
-// game.screen.viewport = { width: 800, height: 400 }
-// game.screen.resolution = { width: 800, height: 400};
+// game.screen.viewport = { width: 800, height: 600 }
+// game.screen.resolution = { width: 800, height: 600};
 // game.screen.applyResolutionAndViewport();
 
 

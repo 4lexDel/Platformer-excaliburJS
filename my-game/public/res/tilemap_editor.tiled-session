@@ -6,6 +6,7 @@
     "activeFile": "map.tmx",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
+        "templates",
         "."
     ],
     "file.lastUsedOpenFilter": "Tous les Fichiers (*)",
@@ -30,11 +31,11 @@
             "scaleInEditor": 3
         },
         "map.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 6,
+            "scale": 2,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 527,
-                "y": 182.33333333333337
+                "x": 86.75,
+                "y": 102.25
             }
         },
         "platform_pixelart.tsx": {

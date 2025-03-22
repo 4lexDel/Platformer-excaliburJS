@@ -4,19 +4,11 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 const BASE_URL = import.meta.env.MODE === 'production' ? '/platformer' : '';
 
 export const Resources = {
+  platformsSpriteSheet: new ImageSource(BASE_URL + '/res/src/sprites/platforms.png'),
   playerSpriteSheet: new ImageSource(BASE_URL + '/res/src/sprites/knight.png'),
   coinSpriteSheet: new ImageSource(BASE_URL + '/res/src/sprites/coin.png'),
   tiledMap: new TiledResource(BASE_URL + '/res/map.tmx')
 }
-  //, {
-  // entityClassNameFactories: {
-  //   player: (props) => {
-  //     const player = new Player(props.worldPos);
-  //     player.z = 100;
-  //     return player;
-  //   }
-  // },
-  // }
 
 class DevLoader extends Loader {
   showPlayButton() {

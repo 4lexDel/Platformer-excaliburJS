@@ -47,6 +47,7 @@ export default class BaseScene extends Scene {
           width: props.object?.properties.get('width'),
           height: props.object?.properties.get('height'),
         },
+        props.object?.properties.get('type'),
         (actions) => {
           const speed = (props.object?.properties.get('speed')) ?? 30;
           const pathObjectId = props.object?.properties.get('path');
@@ -144,7 +145,7 @@ export default class BaseScene extends Scene {
     // set camera to follow player
     const player = this.entities.find((e) => e instanceof Player);
     this.camera.strategy.lockToActor(player);
-    this.camera.zoom = 1.5;
+    this.camera.zoom = 1.8;
     // this.camera.addStrategy(new LockCameraToActorStrategy(player));
 
     // @ts-expect-error - temporary to prioritize lockToActor over tilemap strategy
