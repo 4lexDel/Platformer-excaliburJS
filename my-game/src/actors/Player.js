@@ -5,6 +5,7 @@ import {
   Color,
   Side,
   SpriteSheet,
+  TileMap,
 } from "excalibur";
 import { AnimationComponent } from "../components/graphics/animation";
 import { PlayerControlsComponent } from "../components/input/control";
@@ -119,8 +120,7 @@ export class Player extends Actor {
       this.animation.set("jump");
     };
 
-    if (this.controls.wasPressed("Jump")) {
-      // && this.nbJumpMax > this.nbJumpUsed) {
+    if (this.controls.wasPressed("Jump") && this.nbJumpMax > this.nbJumpUsed) {
       this.setNbJumpUsed(this.nbJumpUsed + 1);
       jump();
     }
@@ -134,7 +134,7 @@ export class Player extends Actor {
 
   onPostCollisionResolve(self, other, side, contact) {
     if (
-      other.owner instanceof Actor &&
+      (other.owner instanceof Actor || other.owner instanceof TileMap) &&
       side === Side.Bottom &&
       Math.abs(this.vel.y) <= 5
     ) {

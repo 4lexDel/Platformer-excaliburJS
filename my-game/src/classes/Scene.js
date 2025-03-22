@@ -12,6 +12,7 @@ import {
   vec,
 } from "excalibur";
 import { Coin } from "../actors/COin";
+import { FixedPlatform } from "../actors/FixedPlatform";
 import { LevelTransition } from "../actors/LevelTransition";
 import { MovingPlatform } from "../actors/MovingPlatform";
 import { Player } from "../actors/Player";
@@ -24,7 +25,6 @@ export default class BaseScene extends Scene {
   entityFactory = {
     /* Level transition */
     LevelTransition: (props) => {
-      console.log(props.object);
       return new LevelTransition({
         x: props.object?.properties.get('direction') === "right" ? this.totalWidth : 0,
         y: props.object?.y ?? -1000,
@@ -173,6 +173,7 @@ export default class BaseScene extends Scene {
 
     // this.setupCollisionGroups()    // Advanced collision behaviours...
     this.setupCamera();
+    this.setupOneWayPlatforms();
     this.setupWorldBounds();
 
     // this.setupOneWayPlatforms();
@@ -188,6 +189,28 @@ export default class BaseScene extends Scene {
 
     // @ts-expect-error - temporary to prioritize lockToActor over tilemap strategy
     // this.camera._cameraStrategies.reverse();
+  }
+
+  setupOneWayPlatforms() {
+    // get all tiles with oneway property
+    const onewayTiles = this.tilemap.getTilesByProperty('oneway', true)
+    const tileWidth = this.tilemap.map.tilewidth
+    const tileHeight = this.tilemap.map.tileheight
+
+    // create one way platforms at each tile
+    for (const { exTile } of onewayTiles) {
+      console.log(exTile);
+      const col = exTile.x
+      const row = exTile.y
+
+      const platform = new FixedPlatform({
+        x: col * tileWidth,
+        y: row * tileHeight,
+        width: tileWidth,
+        height: tileHeight,
+      })
+      this.add(platform)
+    }
   }
 
   setupWorldBounds() {

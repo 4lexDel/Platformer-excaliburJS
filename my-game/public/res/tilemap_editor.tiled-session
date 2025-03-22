@@ -44,22 +44,22 @@
                 7,
                 13
             ],
-            "scale": 16,
-            "selectedLayer": 9,
+            "scale": 0.75,
+            "selectedLayer": 8,
             "viewCenter": {
-                "x": 1589.9375,
-                "y": 551.46875
+                "x": 860,
+                "y": 803.3333333333333
             }
         },
         "level1.2.tmx": {
             "expandedObjectLayers": [
                 13
             ],
-            "scale": 4,
+            "scale": 1.5,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 34.5,
-                "y": 458.375
+                "x": 248,
+                "y": 448.99999999999994
             }
         },
         "level1.tmx": {
@@ -68,11 +68,11 @@
                 8,
                 7
             ],
-            "scale": 0.75,
+            "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 3321.333333333333,
-                "y": 1315.3333333333333
+                "x": 3333,
+                "y": 775.5
             }
         },
         "level2.tmx": {
@@ -153,11 +153,11 @@
         "map.tmx"
     ],
     "project": "tilemap_editor.tiled-project",
-    "property.type": "string",
+    "property.type": "bool",
     "recentFiles": [
+        "level2.tmx",
         "level1.tmx",
         "maps/level1.1.tmx",
-        "level2.tmx",
         "level1 - Copie.tmx",
         "map.tmx",
         "blocks.tsx",
