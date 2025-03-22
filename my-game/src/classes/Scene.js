@@ -17,27 +17,35 @@ import { MovingPlatform } from "../actors/MovingPlatform";
 import { Player } from "../actors/Player";
 
 export default class BaseScene extends Scene {
+  transitionWidth = 5;
+  transitionMargin = 15;
+
   tilemap = null;
   entityFactory = {
     /* Level transition */
     LevelTransition: (props) => {
       console.log(props.object);
       return new LevelTransition({
-        x: props.object?.properties.get('direction') === "right" ? this.totalWidth-1 : 0,
+        x: props.object?.properties.get('direction') === "right" ? this.totalWidth : 0,
         y: props.object?.y ?? -1000,
         z: props.layer.order ?? 0,
-        width: 5,
+        width: this.transitionWidth,
         height: 3000,
       }, props.object?.properties.get('targetlevel'));
     },
 
     /* Player */
-    Player: (props) =>
-      new Player({
+    Player: (props) => {
+      const player = new Player({
         x: props.object?.x ?? 0,
         y: props.object?.y ?? 0,
         z: props.layer.order ?? 0,
-      }),
+      });
+
+      this.player = player;
+
+      return player;
+    },
 
     /* Items */
     Coin: (props) => {
@@ -145,6 +153,19 @@ export default class BaseScene extends Scene {
     }
   }
 
+  onActivate() {
+    if (this.player) {
+      if (this.player.pos.x >= this.totalWidth-this.transitionMargin) {
+        this.player.pos.x = this.totalWidth - this.transitionMargin;
+        this.player.facing = "left";
+      }
+      else if (this.player.pos.x <= this.transitionMargin) {
+        this.player.pos.x = this.transitionMargin;
+        this.player.facing = "right";
+      }
+    }
+  }
+
   onInitialize() {
     this.tilemap.addToScene(this);
 
@@ -170,7 +191,7 @@ export default class BaseScene extends Scene {
   }
 
   setupWorldBounds() {
-    const offset = 5;
+    const offset = 0;
     const bounds = new Actor({
       collisionType: CollisionType.Fixed,
       collider: new CompositeCollider([

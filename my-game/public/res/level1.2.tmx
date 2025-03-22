@@ -513,6 +513,6 @@
     <property name="width" type="float" value="8"/>
    </properties>
   </object>
-  <object id="163" template="templates/Player.tx" x="26" y="526.667"/>
+  <object id="163" template="templates/Player.tx" x="17.4621" y="526.455"/>
  </objectgroup>
 </map>

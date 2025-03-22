@@ -3,10 +3,8 @@ import {
   Animation,
   CollisionType,
   Color,
-  Shape,
   Side,
   SpriteSheet,
-  vec,
 } from "excalibur";
 import { AnimationComponent } from "../components/graphics/animation";
 import { PlayerControlsComponent } from "../components/input/control";
@@ -37,7 +35,7 @@ export class Player extends Actor {
       height: PLAYER_HEIGHT,
       color: Color.Blue,
       collisionType: CollisionType.Active,
-      ...args
+      ...args,
     });
     this.body.useGravity = true;
 
@@ -53,10 +51,11 @@ export class Player extends Actor {
         spriteWidth: SPRITE_WIDTH,
         spriteHeight: SPRITE_HEIGHT,
       },
-      spacing: {//margin 8 spacing 12
-        originOffset: {x: 8, y: 8},  
-        margin: {x: 16, y: 12}
-      }
+      spacing: {
+        //margin 8 spacing 12
+        originOffset: { x: 8, y: 8 },
+        margin: { x: 16, y: 12 },
+      },
     });
 
     this.animation = new AnimationComponent(
@@ -120,7 +119,8 @@ export class Player extends Actor {
       this.animation.set("jump");
     };
 
-    if (this.controls.wasPressed("Jump")) {// && this.nbJumpMax > this.nbJumpUsed) {
+    if (this.controls.wasPressed("Jump")) {
+      // && this.nbJumpMax > this.nbJumpUsed) {
       this.setNbJumpUsed(this.nbJumpUsed + 1);
       jump();
     }
