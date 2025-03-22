@@ -1,7 +1,7 @@
 import { ImageSource, Loader } from "excalibur";
 import { TiledResource } from '@excaliburjs/plugin-tiled';
 
-const BASE_URL = import.meta.env.MODE === 'production' ? '/platformer' : '';
+const BASE_URL = import.meta.env.MODE === 'production' ? '/platformer-excalibur-js' : '';
 
 export const Resources = {
   platformsSpriteSheet: new ImageSource(BASE_URL + '/res/src/sprites/platforms.png'),
